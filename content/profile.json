@@ -1,0 +1,17 @@
+{
+  "name": "Moataz Alaa",
+  "role": "Operations Specialist",
+  "avatarUrl": "/avatar.jpg",
+  "bio": "خريج قانون متميز ذو خبرة مهنية غنية ومتنوعة تجمع بين العمليات الطيران والخدمات القانونية، بالإضافة إلى شغف عميق بتطبيقات الذكاء الاصطناعي، وتحسين وتطوير مسارات العمل، والتفكير الهيكلي المنظم لحل المشكلات المعقدة.",
+  "skills_summary": [
+    "الذكاء الاصطناعي (AI)",
+    "تحسين مسارات العمل (Workflow Optimization)",
+    "التفكير الهيكلي وحل المشكلات",
+    "عمليات الطيران (Aviation Operations)"
+  ],
+  "contacts": {
+    "email": "moataz.alaa@example.com",
+    "github": "https://github.com",
+    "linkedin": "https://linkedin.com"
+  }
+}
