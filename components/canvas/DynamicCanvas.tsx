@@ -12,6 +12,7 @@ import type {
   Certification 
 } from "@/types";
 import HomeSection from "./HomeSection";
+import ExperienceSection from "./ExperienceSection"; // استيراد قسم الخبرات الجديد
 
 interface DynamicCanvasProps {
   activeTab: "home" | "experience" | "skills" | "certs";
@@ -33,10 +34,8 @@ export default function DynamicCanvas({
   certifications,
 }: DynamicCanvasProps) {
   
-  // تحويل وقت الحركة من ميلي ثانية إلى ثوانٍ لاستخدامه في framer-motion
   const durationInSeconds = transitionConfig.globalDurationMs / 1000;
 
-  // إعدادات الحركة العامة لتأثير التلاشي والانتقال السلس
   const variants = {
     initial: { opacity: 0, y: 15 },
     animate: { opacity: 1, y: 0 },
@@ -44,7 +43,6 @@ export default function DynamicCanvas({
   };
 
   return (
-    // AnimatePresence تسمح للـ Components بأن تكمل حركة الخروج (exit) قبل إزالتها من شجرة الـ DOM
     <AnimatePresence mode="wait">
       <motion.div
         key={activeTab}
@@ -63,6 +61,28 @@ export default function DynamicCanvas({
           <HomeSection homeContent={homeContent} theme={theme} />
         )}
 
+        {activeTab === "experience" && (
+          // تم تبديل النص المؤقت بالمكون التفاعلي الجديد
+          <ExperienceSection experiences={experiences} theme={theme} />
+        )}
+
+        {activeTab === "skills" && (
+          <div className="text-center py-12">
+            <h2 className="text-2xl font-bold mb-2" style={{ color: theme.textPrimary }}>المهارات الفنية</h2>
+            <p style={{ color: theme.textSecondary }}>قريباً: سنقوم ببناء شاشة أشرطة التقدم التفاعلية لمهاراتك الفنية والقانونية!</p>
+          </div>
+        )}
+
+        {activeTab === "certs" && (
+          <div className="text-center py-12">
+            <h2 className="text-2xl font-bold mb-2" style={{ color: theme.textPrimary }}>الشهادات والاعتمادات</h2>
+            <p style={{ color: theme.textSecondary }}>قريباً: سنقوم ببناء الجدول الزمني الأنيق لعرض شهاداتك الأكاديمية والمهنية!</p>
+          </div>
+        )}
+      </motion.div>
+    </AnimatePresence>
+  );
+}
         {activeTab === "experience" && (
           <div className="text-center py-12">
             <h2 className="text-2xl font-bold mb-2" style={{ color: theme.textPrimary }}>الخبرات المهنية</h2>
