@@ -13,7 +13,8 @@ import type {
 } from "@/types";
 import HomeSection from "./HomeSection";
 import ExperienceSection from "./ExperienceSection";
-import SkillsSection from "./SkillsSection"; // استيراد قسم المهارات الجديد
+import SkillsSection from "./SkillsSection";
+import CertsSection from "./CertsSection"; // استيراد قسم الشهادات النهائي
 
 interface DynamicCanvasProps {
   activeTab: "home" | "experience" | "skills" | "certs";
@@ -64,6 +65,20 @@ export default function DynamicCanvas({
 
         {activeTab === "experience" && (
           <ExperienceSection experiences={experiences} theme={theme} />
+        )}
+
+        {activeTab === "skills" && (
+          <SkillsSection skills={skills} theme={theme} />
+        )}
+
+        {activeTab === "certs" && (
+          // تم تبديل النص المؤقت بمكون الشهادات النهائي
+          <CertsSection certifications={certifications} theme={theme} />
+        )}
+      </motion.div>
+    </AnimatePresence>
+  );
+}          <ExperienceSection experiences={experiences} theme={theme} />
         )}
 
         {activeTab === "skills" && (
