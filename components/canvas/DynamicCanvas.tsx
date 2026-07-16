@@ -12,7 +12,8 @@ import type {
   Certification 
 } from "@/types";
 import HomeSection from "./HomeSection";
-import ExperienceSection from "./ExperienceSection"; // استيراد قسم الخبرات الجديد
+import ExperienceSection from "./ExperienceSection";
+import SkillsSection from "./SkillsSection"; // استيراد قسم المهارات الجديد
 
 interface DynamicCanvasProps {
   activeTab: "home" | "experience" | "skills" | "certs";
@@ -62,7 +63,24 @@ export default function DynamicCanvas({
         )}
 
         {activeTab === "experience" && (
-          // تم تبديل النص المؤقت بالمكون التفاعلي الجديد
+          <ExperienceSection experiences={experiences} theme={theme} />
+        )}
+
+        {activeTab === "skills" && (
+          // تم تبديل النص المؤقت بمكون المهارات التفاعلي الجديد
+          <SkillsSection skills={skills} theme={theme} />
+        )}
+
+        {activeTab === "certs" && (
+          <div className="text-center py-12">
+            <h2 className="text-2xl font-bold mb-2" style={{ color: theme.textPrimary }}>الشهادات والاعتمادات</h2>
+            <p style={{ color: theme.textSecondary }}>قريباً: سنقوم ببناء الجدول الزمني الأنيق لعرض شهاداتك الأكاديمية والمهنية!</p>
+          </div>
+        )}
+      </motion.div>
+    </AnimatePresence>
+  );
+}          // تم تبديل النص المؤقت بالمكون التفاعلي الجديد
           <ExperienceSection experiences={experiences} theme={theme} />
         )}
 
