@@ -14,7 +14,7 @@ import type {
 import HomeSection from "./HomeSection";
 import ExperienceSection from "./ExperienceSection";
 import SkillsSection from "./SkillsSection";
-import CertsSection from "./CertsSection"; // استيراد قسم الشهادات النهائي
+import CertsSection from "./CertsSection";
 
 interface DynamicCanvasProps {
   activeTab: "home" | "experience" | "skills" | "certs";
@@ -36,8 +36,10 @@ export default function DynamicCanvas({
   certifications,
 }: DynamicCanvasProps) {
   
+  // تحويل وقت الحركة إلى ثوانٍ لـ framer-motion
   const durationInSeconds = transitionConfig.globalDurationMs / 1000;
 
+  // إعدادات حركة التلاشي والانتقال
   const variants = {
     initial: { opacity: 0, y: 15 },
     animate: { opacity: 1, y: 0 },
@@ -59,6 +61,7 @@ export default function DynamicCanvas({
         className="w-full h-full min-h-[400px] flex flex-col justify-center rounded-2xl p-6 md:p-8"
         style={{ backgroundColor: theme.surface }}
       >
+        {/* عرض التبويب النشط بناءً على القيمة الحالية */}
         {activeTab === "home" && (
           <HomeSection homeContent={homeContent} theme={theme} />
         )}
@@ -72,69 +75,7 @@ export default function DynamicCanvas({
         )}
 
         {activeTab === "certs" && (
-          // تم تبديل النص المؤقت بمكون الشهادات النهائي
           <CertsSection certifications={certifications} theme={theme} />
-        )}
-      </motion.div>
-    </AnimatePresence>
-  );
-}          <ExperienceSection experiences={experiences} theme={theme} />
-        )}
-
-        {activeTab === "skills" && (
-          // تم تبديل النص المؤقت بمكون المهارات التفاعلي الجديد
-          <SkillsSection skills={skills} theme={theme} />
-        )}
-
-        {activeTab === "certs" && (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-bold mb-2" style={{ color: theme.textPrimary }}>الشهادات والاعتمادات</h2>
-            <p style={{ color: theme.textSecondary }}>قريباً: سنقوم ببناء الجدول الزمني الأنيق لعرض شهاداتك الأكاديمية والمهنية!</p>
-          </div>
-        )}
-      </motion.div>
-    </AnimatePresence>
-  );
-}          // تم تبديل النص المؤقت بالمكون التفاعلي الجديد
-          <ExperienceSection experiences={experiences} theme={theme} />
-        )}
-
-        {activeTab === "skills" && (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-bold mb-2" style={{ color: theme.textPrimary }}>المهارات الفنية</h2>
-            <p style={{ color: theme.textSecondary }}>قريباً: سنقوم ببناء شاشة أشرطة التقدم التفاعلية لمهاراتك الفنية والقانونية!</p>
-          </div>
-        )}
-
-        {activeTab === "certs" && (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-bold mb-2" style={{ color: theme.textPrimary }}>الشهادات والاعتمادات</h2>
-            <p style={{ color: theme.textSecondary }}>قريباً: سنقوم ببناء الجدول الزمني الأنيق لعرض شهاداتك الأكاديمية والمهنية!</p>
-          </div>
-        )}
-      </motion.div>
-    </AnimatePresence>
-  );
-}
-        {activeTab === "experience" && (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-bold mb-2" style={{ color: theme.textPrimary }}>الخبرات المهنية</h2>
-            <p style={{ color: theme.textSecondary }}>قريباً: سنقوم ببناء هذا المكون التفاعلي للخبرات وعرض نيل للطيران والمطار بالكامل!</p>
-          </div>
-        )}
-
-        {activeTab === "skills" && (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-bold mb-2" style={{ color: theme.textPrimary }}>المهارات الفنية</h2>
-            <p style={{ color: theme.textSecondary }}>قريباً: سنقوم ببناء شاشة أشرطة التقدم التفاعلية لمهاراتك الفنية والقانونية!</p>
-          </div>
-        )}
-
-        {activeTab === "certs" && (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-bold mb-2" style={{ color: theme.textPrimary }}>الشهادات والاعتمادات</h2>
-            <p style={{ color: theme.textSecondary }}>قريباً: سنقوم ببناء الجدول الزمني الأنيق لعرض شهاداتك الأكاديمية والمهنية!</p>
-          </div>
         )}
       </motion.div>
     </AnimatePresence>
